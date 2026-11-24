@@ -1,0 +1,201 @@
+/* ==========================================================
+   cafe hermes — Liquid Glass (شیشه‌ای مایع) روی تم سفید و قرمز
+   بعد از apple.css لود می‌شه. حذف این فایل = برگشت به نسخه‌ی ساده
+   ========================================================== */
+:root {
+    --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.40));
+    --glass-bg-soft: linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.22));
+    --glass-border: rgba(255, 255, 255, 0.78);
+    --glass-blur: blur(22px) saturate(190%);
+    --glass-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), inset 0 -1px 0 rgba(255, 255, 255, 0.35),
+        0 10px 34px rgba(160, 20, 35, 0.10), 0 2px 6px rgba(0, 0, 0, 0.04);
+    --glass-shadow-hover: inset 0 1px 0 #fff, inset 0 -1px 0 rgba(255, 255, 255, 0.4),
+        0 22px 50px rgba(160, 20, 35, 0.18), 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+@media (max-width: 600px) { :root { --glass-blur: blur(14px) saturate(170%); } }
+
+/* ---------- پس‌زمینه‌ی مش‌گرادیان زنده ---------- */
+html { background: #fff; }
+body { background: transparent; }
+body::before {
+    content: "";
+    position: fixed;
+    inset: -14%;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(38% 34% at 14% 12%, rgba(227, 11, 27, 0.34), transparent 70%),
+        radial-gradient(34% 30% at 90% 18%, rgba(255, 128, 96, 0.40), transparent 70%),
+        radial-gradient(42% 38% at 82% 92%, rgba(227, 11, 27, 0.24), transparent 70%),
+        radial-gradient(34% 30% at 6% 84%, rgba(255, 176, 150, 0.44), transparent 70%),
+        radial-gradient(30% 26% at 50% 50%, rgba(255, 214, 205, 0.40), transparent 70%),
+        linear-gradient(180deg, #fff, #fff6f4);
+    animation: meshMove 28s ease-in-out infinite alternate;
+}
+@keyframes meshMove {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    50%  { transform: translate3d(2.5%, -2%, 0) scale(1.06); }
+    100% { transform: translate3d(-2.5%, 2.5%, 0) scale(1.1); }
+}
+.hero, .page, .container { background: transparent; }
+
+/* ---------- شیشه‌ی اصلی ---------- */
+.menu-item, .about-card, .info-box, .pin-card, .menu-toolbar, .page-header,
+.btn-outline, .back-to-top, .qr-box {
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+}
+.menu-item, .about-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 26px;
+}
+.menu-item:hover, .about-card:hover {
+    box-shadow: var(--glass-shadow-hover);
+    border-color: #fff;
+}
+.info-box {
+    position: relative; overflow: hidden; isolation: isolate;
+    background: var(--glass-bg-soft);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 6px 20px rgba(160, 20, 35, 0.06);
+    border-radius: 20px;
+}
+.info-box:hover { background: var(--glass-bg); box-shadow: var(--glass-shadow); }
+
+/* بازتاب نور که دنبال موس/انگشت می‌چرخه */
+.menu-item::before, .about-card::before, .info-box::before, .pin-card::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(380px circle at var(--mx, 70%) var(--my, -10%), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0) 55%);
+    opacity: 0.5;
+    transition: opacity .35s;
+}
+.menu-item:hover::before, .about-card:hover::before, .info-box:hover::before { opacity: 1; }
+/* لبه‌ی براق بالای کارت */
+.menu-item::after, .about-card::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute;
+    left: 14%; right: 14%; top: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    z-index: 4;
+    pointer-events: none;
+}
+
+/* ---------- داخل کارت آیتم ---------- */
+.menu-item-photo { background: rgba(255, 255, 255, 0.28); }
+.menu-item-photo:not(.has-photo) {
+    background: radial-gradient(circle at 50% 58%, rgba(227, 11, 27, 0.14), transparent 62%), rgba(255, 255, 255, 0.30);
+}
+.menu-item-bigicon { filter: drop-shadow(0 12px 14px rgba(180, 20, 30, 0.28)); }
+.menu-item-body, .menu-item-photo { position: relative; z-index: 1; }
+.about-card > *, .info-box > *, .pin-card > * { position: relative; z-index: 1; }
+.filter-tabs { background: transparent !important; }
+.menu-price, .menu-item-photo .menu-price {
+    background: linear-gradient(135deg, rgba(255, 70, 80, 0.94), rgba(190, 0, 20, 0.94));
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 8px 20px rgba(227, 11, 27, 0.35);
+    z-index: 4;
+}
+.menu-item.unavailable .menu-price, .menu-item.unavailable .menu-item-photo .menu-price {
+    background: rgba(70, 70, 76, 0.78); color: #fff; box-shadow: none;
+}
+.item-badge {
+    background: rgba(255, 255, 255, 0.78); color: var(--red);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow: inset 0 1px 0 #fff, 0 6px 16px rgba(160, 20, 35, 0.16);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    z-index: 4;
+}
+.unavailable-badge {
+    background: rgba(29, 29, 31, 0.72); color: #fff; z-index: 4;
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+
+/* ---------- هدر، نوار ابزار، فیلتر، جستجو ---------- */
+.page-header {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.46));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 1px 0 rgba(160, 20, 35, 0.06), 0 8px 30px rgba(160, 20, 35, 0.06);
+}
+.menu-toolbar {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.40));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 26px rgba(160, 20, 35, 0.06);
+}
+.action-btn, .back-btn, .filter-tab, .btn-outline {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 4px 14px rgba(160, 20, 35, 0.08);
+}
+.action-btn:hover, .back-btn:hover, .filter-tab:hover, .btn-outline:hover {
+    background: var(--glass-bg); color: var(--red);
+    box-shadow: inset 0 1px 0 #fff, 0 8px 22px rgba(160, 20, 35, 0.16);
+}
+.filter-tab.active, .action-btn.active {
+    background: linear-gradient(180deg, #ff4a55, #d00014); color: #fff;
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 8px 22px rgba(227, 11, 27, 0.38);
+}
+.search-wrap input {
+    background: var(--glass-bg-soft);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: inset 0 2px 6px rgba(160, 20, 35, 0.06), inset 0 1px 0 #fff;
+}
+.search-wrap input:focus { background: var(--glass-bg); border-color: var(--red); box-shadow: 0 0 0 4px rgba(227, 11, 27, 0.12), inset 0 1px 0 #fff; }
+
+/* ---------- دکمه‌های صفحه‌ی اصلی ---------- */
+.btn-primary {
+    background: linear-gradient(180deg, #ff4a55, #d00014);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 14px 34px rgba(227, 11, 27, 0.38);
+}
+.btn-primary:hover { background: linear-gradient(180deg, #ff5a64, #c80013); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 18px 40px rgba(227, 11, 27, 0.48); }
+.logo { filter: drop-shadow(0 18px 30px rgba(180, 20, 30, 0.22)); }
+
+/* ---------- پنجره‌ها ---------- */
+.pin-overlay { background: rgba(70, 0, 12, 0.22); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); }
+.pin-card {
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.58));
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 1px 0 #fff, 0 40px 90px rgba(120, 0, 15, 0.30);
+}
+.pin-box { background: var(--glass-bg-soft); border: 1px solid rgba(255, 255, 255, 0.9); box-shadow: inset 0 2px 6px rgba(160, 20, 35, 0.07), inset 0 1px 0 #fff; }
+.pin-box:focus, .pin-box:not(:placeholder-shown) { background: #fff; border-color: var(--red); box-shadow: 0 0 0 4px rgba(227, 11, 27, 0.12); }
+.pin-btn { background: var(--glass-bg); border: 1px solid var(--glass-border); box-shadow: inset 0 1px 0 #fff, 0 4px 14px rgba(160, 20, 35, 0.08); }
+.qr-actions .pin-btn:first-child { background: linear-gradient(180deg, #ff4a55, #d00014); color: #fff; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 8px 22px rgba(227, 11, 27, 0.35); }
+.qr-box { background: rgba(255, 255, 255, 0.9); }
+.staff-banner { background: linear-gradient(180deg, rgba(255, 74, 85, 0.94), rgba(200, 0, 20, 0.94)); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 8px 24px rgba(227, 11, 27, 0.3); }
+.toast { background: rgba(29, 29, 31, 0.68); border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 14px 38px rgba(0, 0, 0, 0.28); -webkit-backdrop-filter: blur(20px) saturate(160%); backdrop-filter: blur(20px) saturate(160%); }
+.back-to-top { background: var(--glass-bg); border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); }
+.about-banner { box-shadow: 0 18px 50px rgba(160, 20, 35, 0.18); }
+
+/* اگه مرورگر blur نداشت، شیشه جامد و خوانا بمونه */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .menu-item, .about-card, .info-box, .pin-card, .menu-toolbar, .page-header,
+    .btn-outline { background: rgba(255, 255, 255, 0.94); }
+}
+@media (prefers-reduced-motion: reduce) { body::before { animation: none; } }
+
+/* بلور تودرتو داخل نوار ابزار و هدر باعث مستطیل اضافه می‌شد؛ خود نوار بلور داره */
+.filter-tab, .action-btn, .back-btn, .search-wrap input, .filter-tabs {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+}
+.filter-tabs { padding: 6px 10px 16px; margin: -6px -10px -12px; }
+
+/* سبک‌تر برای گوشی‌های ضعیف: بدون انیمیشن مداوم پس‌زمینه */
+body::before { will-change: transform; }
+@media (max-width: 700px) { body::before { animation: none; will-change: auto; } }

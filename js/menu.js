@@ -88,9 +88,14 @@
        سرور (Cloudflare Pages + D1) — ذخیره مشترک بین همه گوشی‌ها
        ============================================================ */
     function api(path, opts) {
+        opts = opts || {}
+        var ctrl = window.AbortController ? new AbortController() : null
+        var timer = null
+        if (ctrl) { opts.signal = ctrl.signal; timer = setTimeout(function () { ctrl.abort() }, 8000) }
         return fetch(path, opts).then(function (r) {
+            clearTimeout(timer)
             return r.json().catch(function () { return {} }).then(function (data) { return { status: r.status, data: data } })
-        })
+        }, function (e) { clearTimeout(timer); throw e })
     }
 
     function pull() {

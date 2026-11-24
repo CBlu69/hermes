@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cafe-hermes-v4'
+const CACHE_NAME = 'cafe-hermes-v6'
 const CORE_ASSETS = [
     './',
     './index.html',
@@ -7,11 +7,14 @@ const CORE_ASSETS = [
     './manifest.json',
     './css/style.css',
     './css/apple.css',
+    './css/glass.css',
     './js/effects.js',
     './js/config.js',
     './js/menu.js',
     './assets/logo.png',
-    './assets/banner.png',
+    './assets/banner.webp',
+    './assets/fonts/Vazirmatn-var.woff2',
+    './js/qrcode.js',
     './assets/icon-192.png',
     './assets/icon-512.png'
 ]

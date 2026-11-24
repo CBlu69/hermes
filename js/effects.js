@@ -11,8 +11,9 @@
         setTimeout(function () { if (splash.parentNode) splash.parentNode.removeChild(splash) }, 600)
     }
     if (splash) {
-        window.addEventListener('load', function () { setTimeout(hideSplash, 700) })
-        setTimeout(hideSplash, 2400)
+        if (document.readyState !== 'loading') setTimeout(hideSplash, 300)
+        else document.addEventListener('DOMContentLoaded', function () { setTimeout(hideSplash, 300) })
+        setTimeout(hideSplash, 1200)
     }
 
     /* ---------- Custom cursor (desktop only) ---------- */
@@ -225,4 +226,13 @@
         })
     })
     showInstallBtn()
+
+    /* ---------- بازتاب نور شیشه (دنبال موس/انگشت) ---------- */
+    document.addEventListener('pointermove', function (e) {
+        var el = e.target.closest && e.target.closest('.menu-item, .about-card, .info-box')
+        if (!el) return
+        var r = el.getBoundingClientRect()
+        el.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%')
+        el.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%')
+    }, { passive: true })
 })()
