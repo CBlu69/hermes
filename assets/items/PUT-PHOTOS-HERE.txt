@@ -1,0 +1,18 @@
+عکس واقعی هر آیتم رو اینجا بذار.
+
+اسم فایل‌ها دقیقاً همونی باشه که توی menu.html هست:
+
+espresso.jpg
+cappuccino.jpg
+latte.jpg
+hot-chocolate.jpg
+ice-latte.jpg
+mojito.jpg
+choco-shake.jpg
+fresh-juice.jpg
+cheesecake.jpg
+choco-cake.jpg
+tiramisu.jpg
+
+فرمت پیشنهادی: jpg یا png، افقی، مثلاً 800x600.
+تا وقتی عکس نذاری، به‌جاش یه جای خالی با آیکون بزرگ قشنگ نمایش داده می‌شه.

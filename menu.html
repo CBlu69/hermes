@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منو | cafe hermes</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/apple.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="cafe hermes">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+</head>
+
+<body>
+    <div id="splash" class="splash">
+        <div class="splash-inner">
+            <img src="assets/logo.png" alt="" class="splash-logo">
+            <div class="splash-bar"><span></span></div>
+        </div>
+    </div>
+
+    <div class="page">
+        <header class="page-header">
+            <a href="index.html" class="brand">
+                <img src="assets/logo.png" alt="لوگو" class="brand-logo">
+                <span class="brand-name">cafe <span>hermes</span></span>
+            </a>
+            <div class="header-actions">
+                <button id="install-btn" class="action-btn" data-label="نصب اپ" title="نصب اپ" aria-label="نصب اپ" style="display:none">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3v10"/>
+                        <path d="M8 9l4 4 4-4"/>
+                        <path d="M4 17v1.5a2.5 2.5 0 002.5 2.5h11a2.5 2.5 0 002.5-2.5V17"/>
+                    </svg>
+                </button>
+                <button id="qr-btn" class="action-btn" data-label="اشتراک با QR" title="اشتراک منو با QR" aria-label="اشتراک منو">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 3h7v7H3V3zm2 2v3h3V5H5z"/>
+                        <path d="M14 3h7v7h-7V3zm2 2v3h3V5h-3z"/>
+                        <path d="M3 14h7v7H3v-7zm2 2v3h3v-3H5z"/>
+                        <path d="M14 14h3v3h-3z"/>
+                        <path d="M19 14h2v2h-2z"/>
+                        <path d="M14 19h2v2h-2z"/>
+                        <path d="M18 18h2v2h-2z"/>
+                    </svg>
+                </button>
+                <button id="staff-lock-btn" class="action-btn" data-label="حالت مدیریت" title="حالت مدیریت منو" aria-label="حالت مدیریت">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3l7 3v5.5c0 4.2-2.9 7.9-7 9.5-4.1-1.6-7-5.3-7-9.5V6l7-3z"/>
+                        <path d="M9.5 11.5l1.8 1.8 3.4-3.6"/>
+                    </svg>
+                </button>
+                <span class="actions-divider"></span>
+                <a href="index.html" class="back-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 5l7 7-7 7"/>
+                    </svg>
+                    <span class="back-text">بازگشت</span>
+                </a>
+            </div>
+        </header>
+
+        <div id="staff-banner" class="staff-banner">
+            <span>👨‍🍳 حالت مدیریت فعال — روی هر آیتم بزن تا ناموجود/موجود بشه</span>
+            <div class="staff-actions">
+                <button id="reset-menu-btn" class="staff-btn">↺ حذف همه ناموجودها</button>
+                <button id="exit-staff-btn" class="staff-btn">✕ خروج</button>
+            </div>
+        </div>
+
+        <div class="menu-toolbar">
+            <div class="filter-tabs" id="filter-tabs">
+                <button class="filter-tab active" data-filter="all">همه</button>
+                <button class="filter-tab" data-filter="hot">☕ نوشیدنی گرم</button>
+                <button class="filter-tab" data-filter="cold">🥤 نوشیدنی سرد</button>
+                <button class="filter-tab" data-filter="dessert">🍰 کیک و دسر</button>
+            </div>
+            <div class="search-wrap">
+                <input type="search" id="menu-search" placeholder="جستجو در منو...">
+            </div>
+        </div>
+
+        <div class="container">
+            <h1 class="page-title">منو</h1>
+            <p class="page-sub">دلخوشی‌های گرم و سردِ cafe hermes</p>
+
+            <section class="menu-section reveal" data-cat="hot">
+                <div class="menu-section-header">
+                    <h2><span class="sec-icon">☕</span> نوشیدنی گرم</h2>
+                    <span class="menu-count">۴ مورد</span>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item" data-id="espresso" data-name="اسپرسو">
+                        <div class="menu-item-photo">
+                            <img loading="lazy" src="assets/items/espresso.jpg" alt="اسپرسو">
+                            <span class="menu-item-bigicon">☕</span>
+                            <span class="menu-price">۹۵٬۰۰۰ تومان</span>
+                            <span class="unavailable-badge">ناموجود</span>
+                        </div>
+                        <div class="menu-item-body">
+                            <h3>اسپرسو</h3>
+                            <p>اسپرسوی خالص و پررنگ</p>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="cappuccino" data-badge="پرفروش" data-name="کاپوچینو">
+                        <div class="menu-item-photo">
+                            <img loading="lazy" src="assets/items/cappuccino.jpg" alt="کاپوچینو">
+                            <span class="menu-item-bigicon">🥛</span>
+                            <span class="menu-price">۱۲۰٬۰۰۰ تومان</span>
+                            <span class="unavailable-badge">ناموجود</span>
+                        </div>
+                        <div class="menu-item-body">
+                            <h3>کاپوچینو</h3>
+                            <p>اسپرسو با فوم شیر گرم</p>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="latte" data-name="لاته">
+                        <div class="menu-item-photo">
+                            <img loading="lazy" src="assets/items/latte.jpg" alt="لاته">
+                            <span class="menu-item-bigicon">🍶</span>
+                            <span class="menu-price">۱۳۵٬۰۰۰ تومان</span>
+                            <span class="unavailable-badge">ناموجود</span>
+                        </div>
+                        <div class="menu-item-body">
+                            <h3>لاته</h3>
+                            <p>اسپرسو با شیر و فوم ملایم</p>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="hot-chocolate" data-name="هات چاکلت">
+                        <div class="menu-item-photo">
+                            <img loading="lazy" src="assets/items/hot-chocolate.jpg" alt="هات چاکلت">
+                            <span class="menu-item-bigicon">🍫</span>
+                            <span class="menu-price">۱۱۵٬۰۰۰ تومان</span>
+                            <span class="unavailable-badge">ناموجود</span>
+                        </div>
+                        <div class="menu-item-body">
+                            <h3>هات چاکلت</h3>
+                            <p>شکلات تلخ با خامه</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="menu-section reveal" data-cat="cold" style="--delay:.08s">
+                <div class="menu-section-header">
+                    <h2><span class="sec-icon">🥤</span> نوشیدنی سرد</h2>
+                    <span class="menu-count">۴ مورد</span>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item" data-id="ice-latte" data-name="آیس لاته">
+                        <div class="menu-item-photo">
+                            <img loading="lazy" src="assets/items/ice-latte.jpg" alt="آیس لاته">
+                            <span class="menu-item-bigicon">🧊</span>
+                            <span class="menu-price">۱۴۵٬۰۰۰ تومان</span>
+                            <span class="unavailable-badge">ناموجود</span>
+                        </div>
+                        <div class="menu-item-body">
+                            <h3>آیس لاته</h3>
+                            <p>لاته سرد با یخ</p>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="mojito" data-badge="پرفروش" data-name="موهیتو">
+                        <div class="menu-item-photo">
+                            <img loading="lazy" src="assets/items/mojito.jpg" alt="موهیتو">
+                            <span class="menu-item-bigicon">🌿</span>
+                            <span class="menu-price">۱۰۵٬۰۰۰ تومان</span>
+                            <span class="unavailable-badge">ناموجود</span>
+                        </div>
+                        <div class="menu-item-body">
+                            <h3>موهیتو</h3>
+                            <p>نعناع، لیمو و سودا</p>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="choco-shake" data-badge="جدید" data-name="شیک شکلاتی">
+                        <div class="menu-item-photo">
+                            <img loading="lazy" src="assets/items/choco-shake.jpg" alt="شیک شکلاتی">
+                            <span class="menu-item-bigicon">🍦</span>
+                            <span class="menu-price">۱۵۵٬۰۰۰ تومان</span>
+                            <span class="unavailable-badge">ناموجود</span>
+                        </div>
+                        <div class="menu-item-body">
+                            <h3>شیک شکلاتی</h3>
+                            <p>شکلات با بستنی وانیلی</p>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="fresh-juice" data-name="آبمیوه طبیعی">
+                        <div class="menu-item-photo">
+                            <img loading="lazy" src="assets/items/fresh-juice.jpg" alt="آبمیوه طبیعی">
+                            <span class="menu-item-bigicon">🍊</span>
+                            <span class="menu-price">۹۰٬۰۰۰ تومان</span>
+                            <span class="unavailable-badge">ناموجود</span>
+                        </div>
+                        <div class="menu-item-body">
+                            <h3>آبمیوه طبیعی</h3>
+                            <p>با میوه‌های تازه فصل</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="menu-section reveal" data-cat="dessert" style="--delay:.16s">
+                <div class="menu-section-header">
+                    <h2><span class="sec-icon">🍰</span> کیک و دسر</h2>
+                    <span class="menu-count">۳ مورد</span>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item" data-id="cheesecake" data-name="چیزکیک نیویورکی">
+                        <div class="menu-item-photo">
+                            <img loading="lazy" src="assets/items/cheesecake.jpg" alt="چیزکیک نیویورکی">
+                            <span class="menu-item-bigicon">🍰</span>
+                            <span class="menu-price">۱۶۵٬۰۰۰ تومان</span>
+                            <span class="unavailable-badge">ناموجود</span>
+                        </div>
+                        <div class="menu-item-body">
+                            <h3>چیزکیک نیویورکی</h3>
+                            <p>با سس توت فرنگی</p>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="choco-cake" data-name="کیک شکلاتی">
+                        <div class="menu-item-photo">
+                            <img loading="lazy" src="assets/items/choco-cake.jpg" alt="کیک شکلاتی">
+                            <span class="menu-item-bigicon">🎂</span>
+                            <span class="menu-price">۱۵۰٬۰۰۰ تومان</span>
+                            <span class="unavailable-badge">ناموجود</span>
+                        </div>
+                        <div class="menu-item-body">
+                            <h3>کیک شکلاتی</h3>
+                            <p>شکلات تلخ و خامه</p>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="tiramisu" data-badge="پیشنهاد سرآشپز" data-name="تیرامیسو">
+                        <div class="menu-item-photo">
+                            <img loading="lazy" src="assets/items/tiramisu.jpg" alt="تیرامیسو">
+                            <span class="menu-item-bigicon">🍮</span>
+                            <span class="menu-price">۱۷۵٬۰۰۰ تومان</span>
+                            <span class="unavailable-badge">ناموجود</span>
+                        </div>
+                        <div class="menu-item-body">
+                            <h3>تیرامیسو</h3>
+                            <p>با پودر کاکائو و قهوه</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <p class="page-footer">cafe <span>hermes</span> © ۱۴۰۵</p>
+        </div>
+    </div>
+
+    <button id="back-to-top" class="back-to-top" title="بازگشت به بالا">↑</button>
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- مودال رمز مدیریت -->
+    <div id="pin-modal" class="pin-modal" aria-hidden="true">
+        <div class="pin-overlay" data-close></div>
+        <div class="pin-card" role="dialog" aria-modal="true" aria-label="ورود مدیریت">
+            <img src="assets/logo.png" alt="" class="pin-logo">
+            <h3>حالت مدیریت</h3>
+            <p class="pin-sub">رمز ورود رو وارد کن</p>
+            <div class="pin-boxes" id="pin-boxes">
+                                <input type="tel" inputmode="numeric" maxlength="1" class="pin-box" autocomplete="off" aria-label="رقم ۱">
+                <input type="tel" inputmode="numeric" maxlength="1" class="pin-box" autocomplete="off" aria-label="رقم ۲">
+                <input type="tel" inputmode="numeric" maxlength="1" class="pin-box" autocomplete="off" aria-label="رقم ۳">
+                <input type="tel" inputmode="numeric" maxlength="1" class="pin-box" autocomplete="off" aria-label="رقم ۴">
+                <input type="tel" inputmode="numeric" maxlength="1" class="pin-box" autocomplete="off" aria-label="رقم ۵">
+                <input type="tel" inputmode="numeric" maxlength="1" class="pin-box" autocomplete="off" aria-label="رقم ۶">
+            </div>
+            <p id="pin-error" class="pin-error">رمز اشتباهه ✖</p>
+            <button id="pin-cancel" class="pin-btn">انصراف</button>
+        </div>
+    </div>
+
+    <!-- مودال QR -->
+    <div id="qr-modal" class="pin-modal" aria-hidden="true">
+        <div class="pin-overlay" data-close></div>
+        <div class="pin-card" role="dialog" aria-modal="true" aria-label="اشتراک منو">
+            <img src="assets/logo.png" alt="" class="pin-logo">
+            <h3>اسکن کن</h3>
+            <p class="pin-sub">با دوربین گوشی اسکن کن تا منو باز بشه</p>
+            <div id="qr-code" class="qr-box"></div>
+            <p id="qr-link" class="qr-link"></p>
+            <div class="qr-actions">
+                <button id="qr-copy-btn" class="pin-btn">📋 کپی لینک</button>
+                <button id="qr-close-btn" class="pin-btn">بستن</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="js/effects.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

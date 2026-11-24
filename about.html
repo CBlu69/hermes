@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درباره ما | cafe hermes</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/apple.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="cafe hermes">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+</head>
+
+<body>
+    <div id="splash" class="splash">
+        <div class="splash-inner">
+            <img src="assets/logo.png" alt="" class="splash-logo">
+            <div class="splash-bar"><span></span></div>
+        </div>
+    </div>
+
+    <div class="page">
+        <header class="page-header">
+            <a href="index.html" class="brand">
+                <img src="assets/logo.png" alt="لوگو" class="brand-logo">
+                <span class="brand-name">cafe <span>hermes</span></span>
+            </a>
+            <div class="header-actions">
+                <button id="install-btn" class="action-btn" data-label="نصب اپ" title="نصب اپ" aria-label="نصب اپ" style="display:none">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3v10"/>
+                        <path d="M8 9l4 4 4-4"/>
+                        <path d="M4 17v1.5a2.5 2.5 0 002.5 2.5h11a2.5 2.5 0 002.5-2.5V17"/>
+                    </svg>
+                </button>
+                <span class="actions-divider"></span>
+                <a href="index.html" class="back-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 5l7 7-7 7"/>
+                    </svg>
+                    <span class="back-text">بازگشت</span>
+                </a>
+            </div>
+        </header>
+
+        <div class="container">
+            <h1 class="page-title">درباره ما</h1>
+
+            <img src="assets/banner.png" alt="کافه" class="about-banner reveal">
+
+            <div class="about-card tilt reveal">
+                <h2>☕ داستان ما</h2>
+                <p>
+                    cafe hermes جاییه که گرمای قهوه و حس آرامش به هم می‌رسن. ما با دانه‌های تازه و با کیفیت، هر روز
+                    تلاش می‌کنیم یه لحظه خاص برای شما بسازیم؛ چه برای یه قهوه سریع باشه، چه برای ساعتی کار و گفت‌وگو با
+                    دوستاتون. <strong>هر فنجون، یه لحظه به‌یادموندنی.</strong>
+                </p>
+            </div>
+
+            <div class="about-card reveal" style="--delay:.1s">
+                <h2>📍 آدرس و ساعات کاری</h2>
+                <div class="info-grid">
+                    <div class="info-box">
+                        <div class="icon">📍</div>
+                        <h3>آدرس</h3>
+                        <p>پردیس، میدان عدالت، بلوار فروردین جنوبی، خیابان سعدی، خیابان حافظ، خیابان مولوی ۴</p>
+                    </div>
+                    <div class="info-box">
+                        <div class="icon">🕘</div>
+                        <h3>ساعات کاری</h3>
+                        <p>همه‌روزه ۸ صبح تا ۱۱ شب</p>
+                    </div>
+                    <div class="info-box">
+                        <div class="icon">📞</div>
+                        <h3>تلفن</h3>
+                        <p>۸۲۸۰۸۸۹۴ - ۰۲۱</p>
+                    </div>
+                    <div class="info-box">
+                        <div class="icon">📱</div>
+                        <h3>اینستاگرام</h3>
+                        <p>_cafe_hermes@</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="page-footer">cafe <span>hermes</span> © ۱۴۰۵</p>
+        </div>
+    </div>
+
+    <button id="back-to-top" class="back-to-top" title="بازگشت به بالا">↑</button>
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="js/effects.js"></script>
+</body>
+
+</html>
